@@ -1,29 +1,49 @@
-
-"use client"
+"use client";
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
+import { animateTitle, animateImage, animateNav } from "./annimations";
 
 import styles from "./Hero.module.scss";
 
 import Logo from "../Logo/index";
 
 const Hero = () => {
+  const heroRef = useRef(null);
+  const timeline = useRef(gsap.timeline());
+  useEffect(() => {
+    const context = gsap.context(() => {
+      const tl = timeline.current;
+
+      tl.add(animateTitle()).add(animateImage(), 0).add(animateNav(), 0);
+    }, heroRef);
+
+    return () => context.revert();
+  }, []);
+
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} ref={heroRef}>
       <div className={styles.hero__top}>
-        <div data-menu-item>
+        <div data-menu-item data-hidden>
           <Logo />
         </div>
-        <span data-menu-item>about</span>
-        <span data-menu-item>contact</span>
+        <span data-menu-item data-hidden>
+          about
+        </span>
+        <span data-menu-item data-hidden>
+          contact
+        </span>
       </div>
 
       <h1 className={styles.hero__title}>
-        <span data-title-first>Ultra</span>
+        <span data-title-first data-hidden>
+          Ultra
+        </span>
         <span data-hero-line className={styles.hero__line}></span>
-        <span data-title-last>agency</span>
+        <span data-title-last data-hidden>
+          agency
+        </span>
       </h1>
 
       <div className={styles.hero__image}>
