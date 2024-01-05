@@ -1,16 +1,17 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { forwardRef, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import Image from "next/image";
 import { animateTitle, animateImage, animateNav } from "./annimations";
-
 import styles from "./Hero.module.scss";
 
 import Logo from "../Logo/index";
 
-const Hero = () => {
-  const heroRef = useRef(null);
+const Hero = forwardRef(function Hero(props, ref:any) {
+
+
+  const heroRef = useRef(null)
   const timeline = useRef(gsap.timeline());
   useEffect(() => {
     const context = gsap.context(() => {
@@ -31,7 +32,7 @@ const Hero = () => {
         <span data-menu-item data-hidden>
           about
         </span>
-        <span data-menu-item data-hidden>
+        <span data-menu-item data-hidden ref={ref}>
           contact
         </span>
       </div>
@@ -59,6 +60,6 @@ const Hero = () => {
       </div>
     </section>
   );
-};
+});
 
-export default Hero;
+export default Hero
