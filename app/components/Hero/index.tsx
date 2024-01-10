@@ -7,9 +7,10 @@ import { animateTitle, animateImage, animateNav } from "./annimations";
 import styles from "./Hero.module.scss";
 
 import Logo from "../Logo/index";
+import Menu from "./menu";
 
 const Hero = forwardRef(function Hero(props, ref:any) {
-
+  console.log(`ref`, ref.current)
 
   const heroRef = useRef(null)
   const timeline = useRef(gsap.timeline());
@@ -32,9 +33,7 @@ const Hero = forwardRef(function Hero(props, ref:any) {
         <span data-menu-item data-hidden>
           about
         </span>
-        <span data-menu-item data-hidden ref={ref}>
-          contact
-        </span>
+       <Menu ref={ref}/>
       </div>
 
       <h1 className={styles.hero__title}>

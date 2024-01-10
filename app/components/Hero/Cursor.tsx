@@ -4,8 +4,8 @@ import styles from "./Hero.module.scss";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 const Cursor = ({ stickyElement }: any) => {
+  console.log(`stickyElement`, stickyElement.current);
   const [isHovered, setIsHovered] = useState(false);
-console.log(`stickyElment`, stickyElement);
   const cursorSize = isHovered ? 60 : 20;
   const mouse = {
     x: useMotionValue(0),
@@ -34,26 +34,13 @@ console.log(`stickyElment`, stickyElement);
 
   useEffect(() => {
     const mousePostion = window.addEventListener("mousemove", manageMouseMove);
-// stickyElement.current.addEventListener(
-//       "mouseover",
-//       manageMouseOver
-//     );
-//   stickyElement.current.addEventListener(
-//       "mouseleave",
-//       manageMouseLeave
-//     );
+    //  const mouseOverprop = stickyElement?.current.addEventListener("mouseover", manageMouseOver)
+    //     stickyElement?.current.addEventListener("mouseleave", manageMouseLeave)
 
     return () => {
       mousePostion;
-    //   stickyElement.current.removeEventListener(
-    //     "mouseover",
-    //     manageMouseOver
-    //   );
-    // stickyElement.current.removeEventListener(
-    //     "mouseleave",
-    //     manageMouseLeave
-    //   );
-  
+      // mouseOverprop.removeEventListener("mouseleave", manageMouseLeave)
+      // stickyElement.current.removeEventListener("mouseleave", manageMouseLeave)
     };
   });
 
@@ -61,7 +48,7 @@ console.log(`stickyElment`, stickyElement);
     <motion.div
       style={{ left: smoothScroll.x, top: smoothScroll.y }}
       className={styles.cursor}
-      animate={{width:cursorSize, height:cursorSize}}
+      animate={{ width: cursorSize, height: cursorSize }}
     ></motion.div>
   );
 };
