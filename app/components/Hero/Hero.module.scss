@@ -1,70 +1,94 @@
+ul.transistion {
+  display: flex;
+  position: absolute;
+  z-index: 10;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+ul.transistion li {
+  transform: scaleY(0);
+  background: black;
+  width: 20%;
+}
+
 .hero {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__top {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-  
-    &__top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-inline: 4rem;
-      margin-top: 3.2rem;
-    }
-  
-    &__title {
-      position: absolute;
-      top: 50%;
-      left: 4rem;
-  
-      width: calc(100% - 8rem);
-      transform: translateY(-50%);
-  
-      margin-bottom: 8rem;
-      display: grid;
-      grid-template-columns: max-content 1fr max-content;
-      align-items: center;
-      gap: 3.2rem;
-  
-      font-size: 16rem;
-    }
-  
-    &__line {
-      display: inline-block;
-      height: 0.4rem;
-      width: 100%;
-      background-color: black;
-      transform: scaleX(0);
-      transform-origin: center center;
-    }
-  
-    &__image {
-      overflow: hidden;
-      position: absolute;
-      bottom: 0vh;
-      height: 37vh;
-      left: 0;
-      width: 100%;
-      transform-origin: top center;
-    }
-  
-    &__imageOverlay {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      background-color: black;
-      transform: scaleY(0.31);
-      transform-origin: bottom center;
-    }
+    align-items: center;
+    margin-inline: 4rem;
+    margin-top: 3.2rem;
   }
 
+  &__title {
+    position: absolute;
+    top: 50%;
+    left: 4rem;
 
-  .cursor{
-    background: black;
-    height:20px;
-    width: 20px;
-    position: fixed;
-    border-radius: 50%;
+    width: calc(100% - 8rem);
+    transform: translateY(-50%);
+
+    margin-bottom: 8rem;
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    align-items: center;
+    gap: 3.2rem;
+
+    font-size: 16rem;
   }
+
+  &__line {
+    display: inline-block;
+    height: 0.4rem;
+    width: 100%;
+    background-color: black;
+    transform: scaleX(0);
+    transform-origin: center center;
+  }
+
+  &__image {
+    overflow: hidden;
+    position: absolute;
+    bottom: 0vh;
+    height: 37vh;
+    left: 0;
+    width: 100%;
+    transform-origin: top center;
+  }
+
+  &__imageOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background-color: black;
+    transform: scaleY(0.31);
+    transform-origin: bottom center;
+  }
+}
+
+.cursor {
+  background: black;
+  height: 350px;
+  width: 35px;
+  position: fixed;
+  border-radius: 50%;
+}
+
+.menu {
+  z-index: 11;
+  cursor: pointer;
+  mix-blend-mode: difference;
+  color: white;
+}

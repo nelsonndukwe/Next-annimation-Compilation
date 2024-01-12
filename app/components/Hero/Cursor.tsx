@@ -6,7 +6,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 const Cursor = ({ stickyElement }: any) => {
   console.log(`stickyElement`, stickyElement.current);
   const [isHovered, setIsHovered] = useState(false);
-  const cursorSize = isHovered ? 60 : 20;
+  const cursorSize = isHovered ? 60 : 35;
   const mouse = {
     x: useMotionValue(0),
     y: useMotionValue(0),

@@ -1,13 +1,17 @@
 import React, { forwardRef, useRef } from "react";
+import styles from "./Hero.module.scss";
 
-const Menu = forwardRef(function Menu (props, ref:any){
-    console.log(`ref`, ref);
+interface MenuProps{
+  onClick: () => void
+}
+
+const Menu = ({onClick}:MenuProps)=>{
 
   return (
-    <span data-menu-item data-hidden ref={ref}>
+    <span data-menu-item data-hidden onClick={onClick} className={styles.menu}>
       Menu
     </span>
   );
-});
+};
 
 export default Menu;
