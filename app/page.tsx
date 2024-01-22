@@ -4,6 +4,7 @@ import Loader from "./components/Loader";
 import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Cursor from "./components/Hero/Cursor";
+import About from "./components/About/About";
 
 export default function Home() {
   const [loaderFinished, setLoaderFinished] = useState<Boolean>(false);
@@ -33,6 +34,7 @@ export default function Home() {
         <Loader timeline={timeline} />
       )}
       <Cursor stickyElement={stickyElementRef} />
+      <About />
     </main>
   );
 }

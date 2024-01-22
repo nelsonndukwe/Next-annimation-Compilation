@@ -27,12 +27,52 @@ const Hero = forwardRef(function Hero(props, ref: any) {
   const handleMenuOpen = () => {
     const tl = timeline.current;
     const context = gsap.context(() => {
-      tl.to("[data-menu-overlay]", {
+      tl.to("[data-menu-overlay-first]", {
         duration: 0.5,
         transformOrigin: "top left",
         scaleY: 1,
-        stagger: 0.2,
-      });
+        ease: "Power1.easeOut"
+      })
+        .to(
+          "[data-menu-overlay-second]",
+          {
+            duration: 0.5,
+            transformOrigin: "top left",
+            scaleY: 1,
+            ease: "Power1.easeOut"
+
+          },
+          "<15%"
+        )
+        .to(
+          "[data-menu-overlay-third]",
+          {
+            duration: 0.5,
+            transformOrigin: "top left",
+            scaleY: 1,
+            ease: "Power1.easeOut"
+
+          },
+          "<15%"
+        )
+        .to(
+          "[data-menu-overlay-fourth]",
+          {
+            duration: 0.5,
+            transformOrigin: "top left",
+            scaleY: 1,
+          },
+          "<15%"
+        )
+        .to(
+          "[data-menu-overlay-fifth]",
+          {
+            duration: 0.5,
+            transformOrigin: "top left",
+            scaleY: 1,
+          },
+          "<15%"
+        );
     });
     return () => context.revert();
   };
@@ -40,12 +80,47 @@ const Hero = forwardRef(function Hero(props, ref: any) {
   const handleMenuClose = () => {
     const tl = timeline.current;
     const context = gsap.context(() => {
-      tl.to("[data-menu-overlay]", {
+      tl.to("[data-menu-overlay-first]", {
         duration: 0.5,
         transformOrigin: "top left",
         scaleY: 0,
-        stagger: 0.2,
-      });
+      })
+        .to(
+          "[data-menu-overlay-second]",
+          {
+            duration: 0.5,
+            transformOrigin: "top left",
+            scaleY: 0,
+          },
+          "<15%"
+        )
+        .to(
+          "[data-menu-overlay-third]",
+          {
+            duration: 0.5,
+            transformOrigin: "top left",
+            scaleY: 0,
+          },
+          "<15%"
+        )
+        .to(
+          "[data-menu-overlay-fourth]",
+          {
+            duration: 0.5,
+            transformOrigin: "top left",
+            scaleY: 0,
+          },
+          "<15%"
+        )
+        .to(
+          "[data-menu-overlay-fifth]",
+          {
+            duration: 0.5,
+            transformOrigin: "top left",
+            scaleY: 0,
+          },
+          "<15%"
+        );
     });
     return () => context.revert();
   };
@@ -68,11 +143,11 @@ const Hero = forwardRef(function Hero(props, ref: any) {
   return (
     <section className={styles.hero} ref={heroRef}>
       <ul className={styles.transistion}>
-        <li data-menu-overlay></li>
-        <li data-menu-overlay></li>
-        <li data-menu-overlay></li>
-        <li data-menu-overlay></li>
-        <li data-menu-overlay></li>
+        <li data-menu-overlay-first></li>
+        <li data-menu-overlay-second></li>
+        <li data-menu-overlay-third></li>
+        <li data-menu-overlay-fourth></li>
+        <li data-menu-overlay-fifth></li>
       </ul>
 
       <div className={styles.hero__top}>

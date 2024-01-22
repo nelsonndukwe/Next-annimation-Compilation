@@ -1,0 +1,64 @@
+.main__div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .main {
+    display: flex;
+    align-items: center;
+    padding: 3rem;
+    clip-path: inset(124px 0px 190px 0px); /* or "none" */
+
+    p {
+      font-size: 10rem;
+      &:last-child{
+        padding-top: 9rem;
+      }
+    }
+    .letter__N {
+      color: pink;
+      display: flex;
+      flex-direction: column;
+
+      padding:5px;
+    }
+
+    .letter__E {
+        color: yellow;
+        display: flex;
+        flex-direction: column;
+        padding:5px;
+      }
+
+
+      .letter__L {
+        color: green;
+        display: flex;
+        flex-direction: column;
+        padding:5px;
+      }
+
+
+      .letter__S {
+        color: orange;
+        display: flex;
+        flex-direction: column;
+        padding:5px;
+      }
+
+
+      .letter__O {
+        color: blue;
+        display: flex;
+        flex-direction: column;
+        padding:5px;
+      }
+
+      .letter__NN {
+        color: red;
+        display: flex;
+        flex-direction: column;
+        padding:5px;
+      }
+  }
+}
